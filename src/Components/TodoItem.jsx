@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 
  export function TodoItem(props) {
   return (
-    <li className="TodoItem">
-      <span className={`Icon Icon-check ${props.completed && "Icon-check--active"}`}>
+    <li className={`TodoItem ${props.completed ? "TodoItem--completed" : null}`}>
+      <span className={`Icon Icon-check`}>
         V
       </span>
-      <p className={`TodoItem-p ${props.completed && "TodoItem-p--complete"}`}>
+      <p className={`TodoItem-p`}>
         {props.text}
       </p>
-      <span className="Icon Icon-delete">
+      <span className={`Icon Icon-delete`}>
         X
       </span>
     </li>
