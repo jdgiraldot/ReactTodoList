@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export function TodoCounter({ completed, total }) {
   return (
     <h1 className="TodoCounter">
-      Has completado <span>{completed}</span> de <span>{total}</span> TODOs
+      Has completado <br/> <span>{completed}</span> de <span>{total}</span> TODOs
     </h1>
   );
 }
