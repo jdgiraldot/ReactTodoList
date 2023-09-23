@@ -18,24 +18,21 @@
     padding: 12px;
     border-left: 1px solid #f0f0f020;
     border-right: 1px solid #f0f0f020;
+    cursor: default;
   }
 
   & .Icon {
-    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 48px;
-    width: 48px;
     font-size: 24px;
-    font-weight: bold;
-
+    padding: 12px;
+    cursor: pointer;
     &.Icon-check:hover {
       color: #61dafb;
     }
-
     &.Icon-delete:hover {
-      color: #9e2514;
+      color: #ff4026;
     }
   }
 

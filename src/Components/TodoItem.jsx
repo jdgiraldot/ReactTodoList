@@ -1,18 +1,17 @@
-import './TodoItem.css';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import './TodoItem.css';
 
  export function TodoItem(props) {
   return (
     <li className={`TodoItem ${props.completed ? "TodoItem--completed" : null}`}>
-      <span className={`Icon Icon-check`}>
-        V
-      </span>
-      <p className={`TodoItem-p`}>
+      <FontAwesomeIcon icon={faCircleCheck} className="Icon Icon-check" />
+      <p className="TodoItem-p">
         {props.text}
       </p>
-      <span className={`Icon Icon-delete`}>
-        X
-      </span>
+      <FontAwesomeIcon icon={faTrash} className="Icon Icon-delete" />
     </li>
   );
 }

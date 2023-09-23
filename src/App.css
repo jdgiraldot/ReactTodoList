@@ -8,13 +8,13 @@
 * {
   margin: 0;
   padding: 0;
-  color: var(--text-color);
   box-sizing: border-box;
   list-style: none;
 }
 
 body {
   font-family: "Segoe UI", "Roboto", "Oxygen", sans-serif;
+  color: var(--text-color);
   display: flex;
   place-items: center;
   min-width: 320px;
