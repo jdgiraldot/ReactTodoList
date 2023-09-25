@@ -1,19 +1,23 @@
 import './TodoSearch.css';
+import { PropTypes } from 'prop-types'
 
-export function TodoSearch() {
+export function TodoSearch({searchValue , setSearchValue}) {
   return (
     <>
       <img src="src/assets/lupa.png" alt="Search" className="iconSearch" />
       <input
         placeholder="Search"
         className="TodoSearch"
+        value={searchValue}
         onChange={(e) => {
-          console.log('Escribiste en el TodoSearch');
-          console.log(e);
-          console.log(e.target);
-          console.log(e.target.value);
+          setSearchValue(e.target.value);
         }}
       />
     </>
   );
+}
+
+TodoSearch.propTypes = {
+  searchValue: PropTypes.string,
+  setSearchValue: PropTypes.func
 }
