@@ -15,22 +15,31 @@ import "./App.css"
 
 // localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos))
 
+function useLocaleStorage(itemName, initialValue) {
+  let parsedItem = () => {
+    const itemsFromStorage = window.localStorage.getItem(itemName)
+    return itemsFromStorage ? JSON.parse(itemsFromStorage) : initialValue
+  }
+
+  const [item, setItem] = useState(parsedItem)
+
+  const saveItem = (newItem) => {
+    localStorage.setItem(itemName, JSON.stringify(newItem)) // Persistencia de datos
+    setItem(newItem)
+  }
+
+  return [item, saveItem]
+}
+
+
 function App() {
 
-  const [todos, setTodos] = useState(() => {
-    const todosFromStorage = window.localStorage.getItem('TODOS_V1')
-    return todosFromStorage ? JSON.parse(todosFromStorage) : []
-  })
+  const [todos, saveTodos] = useLocaleStorage('TODOS_V1', [])
   const [searchValue, setSearchValue] = useState('')
 
   const completedTodos = todos.filter(todo => todo.completed === true).length
   const totalTodos = todos.length
   const searchedTodos = todos.filter(todo => todo.text.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()))
-
-  const saveTodos = (newTodos) => {
-    localStorage.setItem('TODOS_V1', JSON.stringify(newTodos)) // Persistencia de datos
-    setTodos(newTodos)
-  }
 
   const completeTodo = (text) => {
     const newTodos = [...todos]
