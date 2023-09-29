@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import { useLocaleStorage } from './Hooks/useLocaleStore';
-import { TodoCounter } from './Components/TodoCounter'
-import { TodoSearch } from './Components/TodoSearch'
-import { TodoList } from './Components/TodoList'
-import { TodoItem } from './Components/TodoItem'
-import { CreateTodoButton } from './Components/CreateTodoButton'
+import { useLocaleStorage } from './hooks/useLocaleStorage';
+import { TodoCounter } from './components/TodoCounter'
+import { TodoSearch } from './components/TodoSearch'
+import { TodoList } from './components/TodoList'
+import { TodoItem } from './components/TodoItem'
+import { CreateTodoButton } from './components/CreateTodoButton'
 import "./App.css"
 
 function App() {
