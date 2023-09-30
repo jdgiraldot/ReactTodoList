@@ -1,13 +1,15 @@
+import { useTodoContext } from '../context/useTodoContext'
 import './CreateTodoButton.css'
 
 export function CreateTodoButton() {
+
+  const { setOpenModal } = useTodoContext()
+
   return (
     <button
       className="CreateTodoButton"
-      onClick={(e) => {
-          console.log('le diste click')
-          console.log(e)
-          console.log(e.target)
+      onClick={() => {
+          setOpenModal(state => !state)
         }
       }
     >+</button>

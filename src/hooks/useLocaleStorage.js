@@ -1,27 +1,27 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 
 export function useLocaleStorage(itemName, initialValue) {
   const getItem = () => {
     try {
-      const itemsFromStorage = window.localStorage.getItem(itemName);
-      return itemsFromStorage ? JSON.parse(itemsFromStorage) : initialValue;
+      const itemsFromStorage = window.localStorage.getItem(itemName)
+      return itemsFromStorage ? JSON.parse(itemsFromStorage) : initialValue
     } catch (error) {
-      console.error('Error fetching data from localStorage:', error);
+      console.error('Error fetching data from localStorage:', error)
       return initialValue;
     }
-  };
+  }
 
-  const [item, setItem] = useState(getItem);
+  const [item, setItem] = useState(getItem)
 
-  useEffect(() => {
+  useEffect(() => { // useEffect lo usamos para cuando cargamos información de forma asincrona
     try {
-      window.localStorage.setItem(itemName, JSON.stringify(item));
+      window.localStorage.setItem(itemName, JSON.stringify(item))
     } catch (error) {
-      console.error('Error saving data to localStorage:', error);
+      console.error('Error saving data to localStorage:', error)
     }
-  }, [itemName, item]);
+  }, [itemName, item])
 
-  return [item, setItem];
+  return [item, setItem]
 }
 
 /*------------------- useLocaleStorage, sin usar Try / Catch ---------------------*/
@@ -54,4 +54,3 @@ function useLocaleStorage(itemName, initialValue) {
 // ];
 
 // localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos))
-
