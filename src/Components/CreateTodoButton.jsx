@@ -7,7 +7,8 @@ export function CreateTodoButton() {
 
   return (
     <button
-      className="CreateTodoButton"
+      type='button'
+      className='CreateTodoButton'
       onClick={() => {
           setOpenModal(state => !state)
         }
