@@ -1,7 +1,10 @@
-import './TodoSearch.css';
-import { PropTypes } from 'prop-types'
+import { useTodoContext } from '../context/useTodoContext'
+import './TodoSearch.css'
 
-export function TodoSearch({searchValue , setSearchValue}) {
+export function TodoSearch() {
+
+  const { searchValue , setSearchValue } = useTodoContext()
+
   return (
     <>
       <img src="src/assets/lupa.png" alt="Search" className="iconSearch" />
@@ -10,14 +13,9 @@ export function TodoSearch({searchValue , setSearchValue}) {
         className="TodoSearch"
         value={searchValue}
         onChange={(e) => {
-          setSearchValue(e.target.value);
+          setSearchValue(e.target.value)
         }}
       />
     </>
-  );
-}
-
-TodoSearch.propTypes = {
-  searchValue: PropTypes.string,
-  setSearchValue: PropTypes.func
+  )
 }

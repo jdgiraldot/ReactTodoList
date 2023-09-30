@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
-import './TodoItem.css';
+import PropTypes from 'prop-types'
+import './TodoItem.css'
 
 export function TodoItem(props) {
   return (
@@ -21,7 +21,7 @@ export function TodoItem(props) {
         onClick={props.onDelete}
       />
     </li>
-  );
+  )
 }
 
 TodoItem.propTypes  = {

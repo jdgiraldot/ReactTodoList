@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import { useLocaleStorage } from './hooks/useLocaleStorage';
+import { useTodoContext } from './context/useTodoContext'
 import { TodoCounter } from './components/TodoCounter'
 import { TodoSearch } from './components/TodoSearch'
 import { TodoList } from './components/TodoList'
@@ -9,31 +8,13 @@ import "./App.css"
 
 function App() {
 
-  const [todos, saveTodos] = useLocaleStorage('TODOS_V1', [])
-  const [searchValue, setSearchValue] = useState('')
-
-  const completedTodos = todos.filter(todo => todo.completed === true).length
-  const totalTodos = todos.length
-  const searchedTodos = todos.filter(todo => todo.text.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()))
-
-  const completeTodo = (text) => {
-    const newTodos = [...todos]
-    const todoIndex = newTodos.findIndex( todo => todo.text == text )
-    newTodos[todoIndex].completed = true
-    saveTodos(newTodos)
-  }
-  const deleteTodo = (text) => {
-    const newTodos = [...todos]
-    const todoIndex = newTodos.findIndex( todo => todo.text == text )
-    newTodos.splice(todoIndex, 1)
-    saveTodos(newTodos)
-  }
-
+  const {searchedTodos, completeTodo, deleteTodo} = useTodoContext()
+  
   return (
     <>
-      <TodoCounter completed={completedTodos} total={totalTodos}/>
+      <TodoCounter />
       <nav>
-        <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue}/>
+        <TodoSearch />
         <CreateTodoButton />
       </nav>
 
@@ -48,7 +29,6 @@ function App() {
           />
         ))}
       </TodoList>
-
     </>
   )
 }

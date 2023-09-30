@@ -1,20 +1,13 @@
-import './TodoCounter.css';
-import PropTypes from 'prop-types';
+import { useTodoContext } from '../context/useTodoContext'
+import './TodoCounter.css'
 
-export function TodoCounter({ completed, total }) {
+export function TodoCounter() {
+
+  const { completedTodos , totalTodos } = useTodoContext()
+
   return (
     <h1 className="TodoCounter">
-      Has completado <br/> <span>{completed}</span> de <span>{total}</span> TODOs
+      Has completado <br/> <span>{completedTodos}</span> de <span>{totalTodos}</span> TODOs
     </h1>
-  );
-}
-
-TodoCounter.propTypes  = {
-	total: PropTypes.number.isRequired,
-	completed: PropTypes.number
-}
-
-TodoCounter.defaultProps = {
-	total: 10,
-	completed: 0
+  )
 }
